@@ -1,0 +1,29 @@
+{
+  "name": "cdmx007-social-network",
+  "version": "1.0.0",
+  "description": "Social Network",
+  "main": "index.js",
+  "scripts": {
+    "htmlhint": "htmlhint src/*.html test/*.html",
+    "eslint": "eslint --ext .js src/ test/",
+    "pretest": "npm run eslint && npm run htmlhint",
+    "test": "jest --coverage"
+  },
+  "dependencies": {
+    "chart.js": "^2.7.3",
+    "eslint": "^5.9.0",
+    "eslint-plugin-jest": "^22.1.2",
+    "htmlhint": "^0.10.1",
+    "jest": "^23.6.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OlgaContreras911/CDMX007-social-network.git"
+  },
+  "author": "Olga, Ely, Giovanna",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OlgaContreras911/CDMX007-social-network/issues"
+  },
+  "homepage": "https://github.com/OlgaContreras911/CDMX007-social-network#readme"
+}
