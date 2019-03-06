@@ -17,7 +17,7 @@ firebase.auth().onAuthStateChanged(function(user) {
       window.location.replace("login.html")
       //  console.log('dfjp') 
      }
-     if(location.pathname === "/CDMX007-social-network/src/"){
+     if(location.pathname === "/CDMX007-social-network/src/" || location.pathname ==="/CDMX007-social-network/src/index.html"){
       window.location.replace("/CDMX007-social-network/src/login.html")
       }
   }
