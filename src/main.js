@@ -13,7 +13,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     console.log('no hay usuario')
     
     uid = null;
-    if(location.pathname === "/src/index.html" ){
+    if(location.pathname === "/src/" || location.pathname === '/src/index.html'){
       window.location.replace("login.html")
       //  console.log('dfjp') 
      }
