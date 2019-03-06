@@ -1,6 +1,13 @@
-.nav-color{
-    background: black;
+#logo{
+    font-size: small;
+    border-style: hidden;
+    height: 15vw;
+    width: 33vw;
 }
- .logo-color{
-    background-color: rgb(255, 0, 140);
+.our-nav{
+    background-color:  rgb(82, 194, 170);
+}
+nav .logo-text{
+    margin-left: 20%;
+    font-family: 'Fredoka One', cursive;
 }
