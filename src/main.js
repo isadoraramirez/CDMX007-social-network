@@ -11,6 +11,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     uid = user.uid;
   } else {
     uid = null;
+    console.log('no hay usuario')
       if(location.pathname !== "/src/login.html"){
       window.location.replace("login.html")
 
