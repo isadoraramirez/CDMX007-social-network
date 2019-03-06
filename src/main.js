@@ -10,15 +10,21 @@ firebase.auth().onAuthStateChanged(function(user) {
     // User is signed in.
     uid = user.uid;
   } else {
+    console.log('no hay usuario')
+    
     uid = null;
-      if(location.pathname !== "/src/login.html"){
+    if(location.pathname === "/src/index.html" ){
       window.location.replace("login.html")
-
+      //  console.log('dfjp') 
+     }
+     if(location.pathname === "/CDMX007-social-network/src/"){
+      window.location.replace("/CDMX007-social-network/src/login.html")
       }
   }
 });
 
 function logOut(){
+  console.log('asmd')
   firebase.auth().signOut();
 }
 mainApp.logOut = logOut;
