@@ -1,4 +1,7 @@
-var config = {
+var app_fireBase = {}
+var firebase;
+ // Initialize Firebase
+ var config = {
     apiKey: "AIzaSyC4TSrYGpQTAYRPxWPUfxoTjlx4TDBjwDw",
     authDomain: "red-social-proyecto.firebaseapp.com",
     databaseURL: "https://red-social-proyecto.firebaseio.com",

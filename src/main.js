@@ -13,11 +13,11 @@ firebase.auth().onAuthStateChanged(function(user) {
     console.log('no hay usuario')
     
     uid = null;
-    if(location.pathname === "/src/index.html" ){
+    if(location.pathname === "/src/" || location.pathname === '/src/index.html'){
       window.location.replace("login.html")
       //  console.log('dfjp') 
      }
-     if(location.pathname === "/CDMX007-social-network/src/"){
+     if(location.pathname === "/CDMX007-social-network/src/" || location.pathname ==="/CDMX007-social-network/src/index.html"){
       window.location.replace("/CDMX007-social-network/src/login.html")
       }
   }
