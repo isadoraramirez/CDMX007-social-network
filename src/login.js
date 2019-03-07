@@ -51,6 +51,7 @@ var uiConfig = {
       }
     },
     // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+    
     signInFlow: 'popup',
     signInSuccessUrl: 'index.html',
     signInOptions: [
@@ -69,3 +70,4 @@ var uiConfig = {
     privacyPolicyUrl: '<your-privacy-policy-url>'
   };
   ui.start('#firebaseui-auth-container', uiConfig);
+  
