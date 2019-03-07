@@ -12,11 +12,11 @@
     <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
 </head>
 <body>
-        <nav class='our-nav'> <!-- navbar content here  --> 
+        <nav class="our-nav"> <!-- navbar content here  --> 
             <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <div class="nav-wrapper nav-color">
-            <img src="../imágenes/icon.png" alt="" id='logo'>
-                <a href="#" class="brand-logo logo-color logo-text">s.learning</a>
+            <img class="responsive-img" src="../imágenes/icon.png" alt="" id='logo'>
+                <a href="#" class="flow-text brand-logo logo-color logo-text">s.learning</a>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
                       <li><a href="sass.html">Sass</a></li>
                       <li><a href="badges.html">Components</a></li>
@@ -45,10 +45,11 @@
         </ul>
        
 <div class="container"></div>
-<h1 id="hotDogOutput">status</h1>
-<input type="textfield" id="latestHotDogStatus" ></imput>
+<h1 id="status">status</h1>
+<input type="textfield" id="latestStatus" >comenta tu estado</imput>
 
-<button id="saveButton">Save</button>
+
+<button id="saveButton">enviar</button>
 <button id="loadButton"></button>
 <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

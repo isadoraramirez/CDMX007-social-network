@@ -1,13 +1,11 @@
 #logo{
-    /* font-size: small;
-    border-style: hidden; */
-    height: 15vw;
-    width: 20vw;
+    height: 3rem;
+    width: 3rem;
 }
 .our-nav{
     background-color:  rgb(82, 194, 170);
 }
 nav .logo-text{
-    margin-left: 20%;
     font-family: 'Fredoka One', cursive;
 }
+
