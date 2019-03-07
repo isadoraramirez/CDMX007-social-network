@@ -1,14 +1,23 @@
 var mainApp = {};
 let buttonLogOut = document.getElementById('logOut');
-
+const userImage = document.getElementById("userImage");
+const userNameP= document.getElementById("userNameP");
+const userEmailP= document.getElementById("userEmailP");
 var app_fireBase;
 
 var firebase = app_fireBase;
 var uid = null;
+var user = firebase.auth().onAuthStateChanged
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // User is signed in.
+    console.log(user)
     uid = user.uid;
+        userImage.innerHTML = `<img class="circle"src="${user.photoURL}"></img>`
+        userNameP.innerHTML = `<p id="userNameP" href="#!"><i class="material-icons">account_circle</i> &nbsp ${user.displayName}</p></li>`
+        userEmailP.innerHTML = `<p id="userEmailP" href="#!"><i class="material-icons">email</i> &nbsp ${user.email}</p></li>`
+        console.log(userImage)
+    
   } else {
     console.log('no hay usuario')
     
