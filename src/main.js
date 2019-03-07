@@ -1,14 +1,20 @@
 var mainApp = {};
 let buttonLogOut = document.getElementById('logOut');
+const userImage = document.getElementById("userImage")
 
 var app_fireBase;
 
 var firebase = app_fireBase;
 var uid = null;
+var user = firebase.auth().onAuthStateChanged
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // User is signed in.
+    console.log(user)
     uid = user.uid;
+        userImage.innerHTML = `<img src="${user.photoURL}"></img>`
+        console.log(userImage)
+    
   } else {
     console.log('no hay usuario')
     
