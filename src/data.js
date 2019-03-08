@@ -4,7 +4,7 @@
    const outputHeader = document.querySelector("#status");
    const inputTextField= document.querySelector("#latestStatus");
    const saveButton = document.querySelector("#saveButton");
-   const loadButton = document.querySelector("#loadButton")
+  //  const loadButton = document.querySelector("#loadButton")
    saveButton.addEventListener("click",function(){
      const textToSave = inputTextField.value;
      //console.log(textToSave);
@@ -18,12 +18,12 @@
      })
    
 
-     loadButton.addEventListener("click",function(){
+     saveButton.addEventListener("click",function(){
 docRef.get()
 .then(function (doc){
 if (doc && doc.exists){
   const myData = doc.data();
-  outputHeader.innerText ="status:" +" "+ myData.userStatus
+  outputHeader.innerText = myData.userStatus
 }
 }).catch(function (error){
   console.log("Got an error:",error);
@@ -36,7 +36,7 @@ if (doc && doc.exists){
          if (doc && doc.exists){
            const myData = doc.data();
            console.log("recibido",doc);
-         outputHeader.innerText = "status: " + myData.userStatus;
+         outputHeader.innerText = myData.userStatus;
          }
        });
      }

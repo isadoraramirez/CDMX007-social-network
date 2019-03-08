@@ -9,3 +9,7 @@ nav .logo-text{
     font-family: 'Fredoka One', cursive;
 }
 
+div textarea,  #saveButton{
+    border-radius: 3vw;
+}
+
