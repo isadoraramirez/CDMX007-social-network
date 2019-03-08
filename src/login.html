@@ -9,13 +9,23 @@
     
    <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
 <script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
-<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
+<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css"/>
+<link rel="stylesheet" type="text/css" media="screen" href="style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
 
 </head>
-<body>
-        <h1>Bienvenido(a) a Social Learning</h1>
+<body id="body-login">
+    <div class="container">
+        <h1 id="welcome" class="flow-text">Bienvenido(a) a <br><b>Social Learning</b></h1>
+        <figure class="container" id="cont-log-login-page">
+        <img src="../imágenes/icon.png" alt="" id="logo-login-page">
+        </figure>
         <div id="firebaseui-auth-container"></div>
         <div id="loader">Loading...</div>
+    </div>
     <script src="firebase.js"></script>
     <script src="login.js"></script>
     <script src="main.js"></script>

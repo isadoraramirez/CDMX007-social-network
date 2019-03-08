@@ -2,14 +2,39 @@
     height: 3rem;
     width: 3rem;
 }
-.our-nav{
+.our-nav, #body-login{
     background-color:  rgb(82, 194, 170);
 }
-nav .logo-text{
+nav .logo-text, #welcome{
     font-family: 'Fredoka One', cursive;
 }
 
-div textarea,  #saveButton{
+#welcome{
+    text-align: center;
+}
+
+div textarea, div fieldset, #saveButton, #firebaseui-auth-container button{
     border-radius: 3vw;
 }
 
+#firebaseui-auth-container button{
+    border-radius: 5vw;
+}
+#firebaseui-auth-container button:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19)!important
+}
+
+
+#cont-log-login-page{
+    text-align: center;
+}
+#logo-login-page{
+    margin: 0%;
+    width: 25vw;
+    height: 25vw;
+}
+@media (max-width: 300px){
+    #firebaseui-auth-container button:hover{
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)!important
+}
+}
