@@ -3,9 +3,11 @@ const postButton = document.getElementById("post-button");
 const printPost = document.getElementById("print-post");
 var db = firebase.firestore();
 const docRef =firestore.collection("wallPost").doc("post");
-
+// const textToPost = postStatus.value;
 postButton.addEventListener("click", ()=>{
-    const textToPost = postStatus.value;
+let textToPost = postStatus.value;
+
+    textToPost;
     console.log("guardando esto "+ textToPost + " en FireStore")
     
     docRef.set({
@@ -28,20 +30,23 @@ postButton.addEventListener("click", ()=>{
     }).catch((error)=>{
         console.log("Hay un error en print:", error)
     });
-})
+    db.collection("wallPost").add({
+        name: "jonh",
+        edad: 32,
+        otro: "otro",
+        email: "mail,segistrado",
+        post: textToPost
+    })
+    .then(function(docRef) {
+        
+        console.log("Document written with ID: ", docRef);
+    })
+    .catch(function(error) {
+        console.error("Error adding document: ", error);
+    });
+});
 
 
 
 
 
-/*db.collection("users").add({
-    first: "Ada",
-    last: "Lovelace",
-    born: 1815
-})
-.then(function(docRef) {
-    console.log("Document written with ID: ", docRef.id);
-})
-.catch(function(error) {
-    console.error("Error adding document: ", error);
-});*/
