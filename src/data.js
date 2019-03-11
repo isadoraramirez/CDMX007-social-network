@@ -1,21 +1,35 @@
-/*const postStatus = document.getElementById("post-status");
+const postStatus = document.getElementById("post-status");
 const postButton = document.getElementById("post-button");
 const printPost = document.getElementById("print-post");
 var db = firebase.firestore();
-const docRef =firestore.doc("wallPost/posts");
+const docRef =firestore.collection("wallPost").doc("post");
 
 postButton.addEventListener("click", ()=>{
     const textToPost = postStatus.value;
-    console.log("guardando esto"+ textToPost + "en FireStore")
+    console.log("guardando esto "+ textToPost + " en FireStore")
+    
     docRef.set({
-        printPost: postStatus
+        status: textToPost
     }).then(()=>{
         console.log("gusrdando estado");
-    }) .catch((error)=>{
+    }).catch((error)=>{
         console.log("Hay un error:", error);
         
     })
+    docRef.get().then((doc)=>{
+
+        if (doc && doc.exists){
+            const postData = doc.data();
+            printPost.value = postData.status;
+        }
+    }).then(()=>{
+        console.log("guardando impresion");
+    
+    }).catch((error)=>{
+        console.log("Hay un error en print:", error)
+    });
 })
+
 
 
 
