@@ -6,10 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Social learning</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="style.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
 </head>
 
@@ -54,8 +53,8 @@
   <div class="container valign-wrapper">
     <fieldset>
       <legend>Actualización</legend>
-      <textarea class="col s10 offset-s1 z-depth-3" type="textfield" placeholder="Actualiza tu estado" id="latestStatus"></textarea>
-      <button class="waves-effect waves-light btn" id="saveButton"><i class="material-icons">chevron_left</i>Actualizar<i class="material-icons">chevron_right</i></button>
+      <textarea class="col s10 l10 offset-s1 z-depth-3" type="textfield" placeholder="Actualiza tu estado" id="post-status"></textarea>
+      <button class="waves-effect waves-light btn" id="post-button"><i class="material-icons">chevron_left</i>Actualizar<i class="material-icons">chevron_right</i></button>
       <!-- <button id="loadButton"></button> -->
     </fieldset>
   </div>
@@ -65,12 +64,16 @@
     <div class="container valign-wrapper">
         <!-- <fieldset> -->
           <!-- <legend>Publicaciones anteriores</legend> -->
-          <textarea class="col s12 offset-s1 z-depth-3" placeholder="Estado" readonly id="status"></textarea>
+          <textarea class="col s12 offset-s1 z-depth-3" placeholder="Estado" readonly id="print-post"></textarea>
           <!-- </fieldset> -->
     </div>
   
   
-  <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase.js"></script>
+  <!-- <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase.js"></script> -->
+  <!--<script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>-->
+  <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase-firestore.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="firebase.js"></script>
   <script src="data.js"></script>
