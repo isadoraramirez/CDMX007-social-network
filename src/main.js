@@ -8,6 +8,7 @@ var app_fireBase;
 var firebase = app_fireBase;
 var uid = null;
 var user = firebase.auth().onAuthStateChanged
+
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // User is signed in.
@@ -43,3 +44,4 @@ document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.sidenav');
     var instances = M.Sidenav.init(elems);
   });
+  
