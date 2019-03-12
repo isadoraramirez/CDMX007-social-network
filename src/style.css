@@ -13,11 +13,11 @@ nav .logo-text, #welcome{
     text-align: center;
 }
 
-div textarea, div fieldset, #saveButton, #firebaseui-auth-container button{
+div textarea, div fieldset, #firebaseui-auth-container button{
     border-radius: 3vw;
 }
 
-#firebaseui-auth-container button{
+#firebaseui-auth-container button, #post-button{
     border-radius: 5vw;
 }
 #firebaseui-auth-container button:hover{
