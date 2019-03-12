@@ -13,17 +13,16 @@ nav .logo-text, #welcome{
     text-align: center;
 }
 
-div textarea, div fieldset, #saveButton, #firebaseui-auth-container button{
+div textarea, div fieldset, #firebaseui-auth-container button{
     border-radius: 3vw;
 }
 
-#firebaseui-auth-container button{
+#firebaseui-auth-container button, #post-button{
     border-radius: 5vw;
 }
 #firebaseui-auth-container button:hover{
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19)!important
 }
-
 
 #cont-log-login-page{
     text-align: center;
@@ -33,3 +32,7 @@ div textarea, div fieldset, #saveButton, #firebaseui-auth-container button{
     width: 25vw;
     height: 25vw;
 }
+
+/* section{
+    display: inline-block;
+} */
