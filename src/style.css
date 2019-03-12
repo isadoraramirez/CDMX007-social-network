@@ -24,7 +24,6 @@ div textarea, div fieldset, #firebaseui-auth-container button{
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19)!important
 }
 
-
 #cont-log-login-page{
     text-align: center;
 }
@@ -33,3 +32,7 @@ div textarea, div fieldset, #firebaseui-auth-container button{
     width: 25vw;
     height: 25vw;
 }
+
+/* section{
+    display: inline-block;
+} */
