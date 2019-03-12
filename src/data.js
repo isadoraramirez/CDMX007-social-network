@@ -44,10 +44,9 @@ postButton.addEventListener("click", () => {
           await db.collection("wallPost")
           .add({
             name: user.displayName,
-            edad: 32,
-            otro: "otro",
             email: user.email,
-            post: textToPost
+            post: textToPost,
+            photo: user.photoURL,
           })
 
         const bd = await firebase.firestore();
@@ -58,7 +57,8 @@ postButton.addEventListener("click", () => {
                 console.log(doc.id, '=>', doc.data());
                 document.getElementById("wall").innerHTML += `
                     <div class="single-post">
-                        <h1>${doc.data().email}</h1>
+                        <h1>${doc.data().name}</h1>
+                        <img class="circle"src="${doc.data().photo}"></img>
                         <p>${doc.data().post}</p>
                     </div>
                     <br>
