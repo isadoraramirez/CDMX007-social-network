@@ -83,8 +83,8 @@ postButton.addEventListener("click", () => {
 
       const bd = await firebase.firestore();
 
-      const publicaciones = await bd.collection('/wallPost').orderBy('name');
-      publicaciones.get().then(snapshot => {
+      const postPublications = await bd.collection('/wallPost').orderBy('name');
+      postPublications.get().then(snapshot => {
         snapshot.forEach(doc => {
           console.log(doc.id, '=>', doc.data());
           muro.innerHTML += `
