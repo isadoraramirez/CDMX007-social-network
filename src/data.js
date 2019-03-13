@@ -5,14 +5,14 @@ var db = firebase.firestore();
 const docRef = firestore.collection("wallPost").doc("post");
 // const textToPost = postStatus.value;
 
-function onloadWall(){
+function onloadWall() {
 
   const bd = firebase.firestore();
   const publicaciones = bd.collection('/wallPost').orderBy('name');
-      publicaciones.get().then(snapshot => {
-        snapshot.forEach(doc => {
-          console.log(doc.id, '=>', doc.data());
-          document.getElementById("wall").innerHTML += `
+  publicaciones.get().then(snapshot => {
+    snapshot.forEach(doc => {
+      console.log(doc.id, '=>', doc.data());
+      document.getElementById("wall").innerHTML += `
                 
             <div class="col s12 m7">
               <h4 class="header">${doc.data().name}</h4>
@@ -27,13 +27,15 @@ function onloadWall(){
                 </div>
               </div>
             </div>`
-        });
-      });
+    });
+  });
 
 }
-
+console.log(new Date())
 
 postButton.addEventListener("click", () => {
+  const muro = document.getElementById("wall")
+  muro.innerHTML = ''
   let textToPost = postStatus.value;
 
   textToPost;
@@ -76,6 +78,7 @@ postButton.addEventListener("click", () => {
           email: user.email,
           post: textToPost,
           photo: user.photoURL,
+          //date: new Date,
         })
 
       const bd = await firebase.firestore();
@@ -84,7 +87,7 @@ postButton.addEventListener("click", () => {
       publicaciones.get().then(snapshot => {
         snapshot.forEach(doc => {
           console.log(doc.id, '=>', doc.data());
-          document.getElementById("wall").innerHTML += `
+          muro.innerHTML += `
                 
             <div class="col s12 m7">
               <h4 class="header">${doc.data().name}</h4>
@@ -122,6 +125,3 @@ docRef.onSnapshot(doc => {
 }
 
 realTimeUpdates();*/
-
-
-
