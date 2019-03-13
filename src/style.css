@@ -33,6 +33,17 @@ div textarea, div fieldset, #firebaseui-auth-container button{
     height: 25vw;
 }
 
-/* section{
-    display: inline-block;
-} */
+ .c-i {
+    padding: 1%;
+    max-width: 15%;
+}
+.user-photo{
+    max-width: 100%;
+    border-radius: 50%;
+}
+.post{
+    margin-left: 1%;
+}
+.name-title{
+    font-size: 1.2rem;
+}
