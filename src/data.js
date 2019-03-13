@@ -47,11 +47,12 @@ postButton.addEventListener("click", () => {
           email: user.email,
           post: textToPost,
           photo: user.photoURL,
+          date: new Date,
         })
 
       const bd = await firebase.firestore();
 
-      const publicaciones = await bd.collection('/wallPost').orderBy('name');
+      const publicaciones = await bd.collection('/wallPost').orderBy('date');
       publicaciones.get().then(snapshot => {
         snapshot.forEach(doc => {
           console.log(doc.id, '=>', doc.data());
@@ -61,7 +62,7 @@ postButton.addEventListener("click", () => {
               <h4 class="header">${doc.data().name}</h4>
                 <div class="card horizontal">
                   <div class="card-image">
-                    <img class="circle"src="${doc.data().photo}">
+                    <img src="${doc.data().photo}">
                   </div>
                 <div class="card-stacked">
                   <div class="card-content">
@@ -73,18 +74,19 @@ postButton.addEventListener("click", () => {
         });;
       });
 
-
-
-
-
     } else {
       console.log("No hay usuario loggeado")
     }
   });
 });
 
-
-
-
-
-
+// realTimeUpdates = () =>{
+//   docRef.onSnapshot(doc => {
+//     if (doc && doc.exists) {
+//       const postData = doc.data();
+//       printPost.value = postData.status;
+//     }
+//   })
+//   }
+  
+//   realTimeUpdates();
