@@ -16,7 +16,7 @@ function onloadWall() {
                 
             <div class="col s12 m7">
               <h4 class="header name-title">${doc.data().name.toUpperCase()}</h4>
-                <div class="card horizontal">
+                <div class="card horizontal z-depth-3">
                   <div class="c-i">
                     <img class="user-photo"src="${doc.data().photo}">
                   </div>
@@ -91,7 +91,7 @@ postButton.addEventListener("click", () => {
                 
           <div class="col s12 m7">
           <h4 class="header name-title">${doc.data().name.toUpperCase()}</h4>
-            <div class="card horizontal">
+            <div class="card horizontal z-depth-3">
               <div class="c-i">
                 <img class="user-photo"src="${doc.data().photo}">
               </div>
