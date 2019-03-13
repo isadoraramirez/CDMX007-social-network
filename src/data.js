@@ -4,6 +4,35 @@ const printPost = document.getElementById("print-post");
 var db = firebase.firestore();
 const docRef = firestore.collection("wallPost").doc("post");
 // const textToPost = postStatus.value;
+
+function onloadWall(){
+
+  const bd = firebase.firestore();
+  const publicaciones = bd.collection('/wallPost').orderBy('name');
+      publicaciones.get().then(snapshot => {
+        snapshot.forEach(doc => {
+          console.log(doc.id, '=>', doc.data());
+          document.getElementById("wall").innerHTML += `
+                
+            <div class="col s12 m7">
+              <h4 class="header">${doc.data().name}</h4>
+                <div class="card horizontal">
+                  <div class="card-image">
+                    <img class="circle"src="${doc.data().photo}">
+                  </div>
+                <div class="card-stacked">
+                  <div class="card-content">
+                    <p>${doc.data().post}</p>
+                  </div>
+                </div>
+              </div>
+            </div>`
+        });
+      });
+
+}
+
+
 postButton.addEventListener("click", () => {
   let textToPost = postStatus.value;
 
@@ -83,8 +112,16 @@ postButton.addEventListener("click", () => {
   });
 });
 
+/*realTimeUpdates = () =>{
+docRef.onSnapshot(doc => {
+  if (doc && doc.exists) {
+    const postData = doc.data();
+    printPost.value = postData.status;
+  }
+})
+}
 
-
+realTimeUpdates();*/
 
 
 
