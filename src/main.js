@@ -8,6 +8,7 @@ var app_fireBase;
 var firebase = app_fireBase;
 var uid = null;
 var user = firebase.auth().onAuthStateChanged
+
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // User is signed in.
@@ -22,12 +23,12 @@ firebase.auth().onAuthStateChanged(function(user) {
     console.log('no hay usuario')
     
     uid = null;
-    if(location.pathname === "/src/" || location.pathname === '/src/index.html'){
-      window.location.replace("login.html")
+    if(location.pathname === "/src/" || location.pathname === '/src/main.html'){
+      window.location.replace("index.html")
       //  console.log('dfjp') 
      }
-     if(location.pathname === "/CDMX007-social-network/src/" || location.pathname ==="/CDMX007-social-network/src/index.html"){
-      window.location.replace("/CDMX007-social-network/src/login.html")
+     if(location.pathname === "/CDMX007-social-network/src/" || location.pathname ==="/CDMX007-social-network/src/main.html"){
+      window.location.replace("/CDMX007-social-network/src/index.html")
       }
   }
 });
@@ -43,3 +44,4 @@ document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.sidenav');
     var instances = M.Sidenav.init(elems);
   });
+  

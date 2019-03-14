@@ -1,82 +1,123 @@
+const postStatus = document.getElementById("post-status");
+const postButton = document.getElementById("post-button");
+const printPost = document.getElementById("print-post");
+var db = firebase.firestore();
+const docRef = firestore.collection("wallPost").doc("post");
+// const textToPost = postStatus.value;
 
- 
-   const docRef = firestore.doc("samples/userData");
-   const outputHeader = document.querySelector("#status");
-   const inputTextField= document.querySelector("#latestStatus");
-   const saveButton = document.querySelector("#saveButton");
-   const loadButton = document.querySelector("#loadButton")
-   saveButton.addEventListener("click",function(){
-     const textToSave = inputTextField.value;
-     //console.log(textToSave);
-     docRef.set({
-       userStatus: textToSave
-     }).then(function(){
-       //console.log("Status saved!");
-     }).catch(function (error) {
-       //console.log("error:",error);
-     });
-     })
-   
+function onloadWall() {
 
-     loadButton.addEventListener("click",function(){
-docRef.get()
-.then(function (doc){
-if (doc && doc.exists){
-  const myData = doc.data();
-  outputHeader.innerText ="status:" +" "+ myData.userStatus
+  const bd = firebase.firestore();
+  const publicaciones = bd.collection('/wallPost').orderBy('name');
+  publicaciones.get().then(snapshot => {
+    snapshot.forEach(doc => {
+      console.log(doc.id, '=>', doc.data());
+      document.getElementById("wall").innerHTML += `
+                
+            <div class="col s12 m7">
+              <h4 class="header name-title">${doc.data().name.toUpperCase()}</h4>
+                <div class="card horizontal">
+                  <div class="c-i">
+                    <img class="user-photo"src="${doc.data().photo}">
+                  </div>
+                <div class="card-stacked">
+                  <div class="post">
+                    <p class="p-post">${doc.data().post}</p>
+                  </div>
+                </div>
+              </div>
+            </div>`
+    });
+  });
+
 }
-}).catch(function (error){
-  console.log("Got an error:",error);
-});
-     });
+console.log(new Date())
 
-     getRealtimeUpdates = function(){
-      //docRef.onSnapshot({includeMetadataChanges: true},function(doc){ //imprimo en la consola dos veces la metadata creo que podriamos usarla para guardar estatus anteriores
-       docRef.onSnapshot(function (doc){
-         if (doc && doc.exists){
-           const myData = doc.data();
-           console.log("recibido",doc);
-         outputHeader.innerText = "status: " + myData.userStatus;
-         }
-       });
-     }
-     getRealtimeUpdates();
+postButton.addEventListener("click", () => {
+  const muro = document.getElementById("wall")
+  muro.innerHTML = ''
+  let textToPost = postStatus.value;
 
-    //intento 
-    let post = firebase.database().docRef('posts/' + postId + '/userStatus');
-    post.on('value', function(snapshot) {
-      updateStarCount(postElement, snapshot.val());
-      console.log(userStatus);
+  textToPost;
+  console.log("guardando esto " + textToPost + " en FireStore");
+
+  docRef
+    .set({
+      status: textToPost
+    })
+    .then(() => {
+      console.log("gusrdando estado");
+    })
+    .catch(error => {
+      console.log("Hay un error:", error);
+    });
+  docRef
+    .get()
+    .then(doc => {
+      if (doc && doc.exists) {
+        const postData = doc.data();
+        printPost.value = postData.status;
+      }
+    })
+    .then(() => {
+      console.log("guardando impresion");
+    })
+    .catch(error => {
+      //   console.log("Hay un error en print:", error);
     });
 
+  var provider = new firebase.auth.GoogleAuthProvider();
+  provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+  firebase.auth().onAuthStateChanged(async function (user) {
+    if (user) {
+      console.log(user.email);
 
-  //   ref.set("hello")
-  // .then(function() {
-  //   return ref.once("value");
-  // })
-  // .then(function(snapshot) {
-  //   var data = snapshot.val(); // data === "hello"
-  // });
+      await db.collection("wallPost")
+        .add({
+          name: user.displayName,
+          email: user.email,
+          post: textToPost,
+          photo: user.photoURL,
+          //date: new Date,
+        })
 
+      const bd = await firebase.firestore();
 
-    // function writeNewPost(uid, username, picture, title, body) {
-    //  ---- A post entry.
-    //   var postData = {
-    //     author: username,
-    //     uid: uid,
-    //     body: body,
-    //     title: title,
-    //     starCount: 0,
-    //     authorPic: picture
-    //   };
-    
-    //   // Get a key for a new Post.
-    //   var newPostKey = firebase.database().ref().child('userStatus').push().key;
-    
-    //   // Write the new post's data simultaneously in the posts list and the user's post list.
-    //   var updates = {};
-    //   updates['/userStatus/' + newPostKey] = postData;
-    //   updates['/user-userStatus/' + uid + '/' + newPostKey] = postData;
-    
-    //   return firebase.database().ref().update(updates);
-    // }
+      const postPublications = await bd.collection('/wallPost').orderBy('name');
+      postPublications.get().then(snapshot => {
+        snapshot.forEach(doc => {
+          console.log(doc.id, '=>', doc.data());
+          muro.innerHTML += `
+                
+          <div class="col s12 m7">
+          <h4 class="header name-title">${doc.data().name.toUpperCase()}</h4>
+            <div class="card horizontal">
+              <div class="c-i">
+                <img class="user-photo"src="${doc.data().photo}">
+              </div>
+            <div class="card-stacked">
+              <div class="post">
+                <p class="p-post">${doc.data().post}</p>
+              </div>
+            </div>
+          </div>
+        </div>`
+        });;
+      });
+
+    } else {
+      console.log("No hay usuario loggeado")
+    }
+  });
+});
+
+// realTimeUpdates = () =>{
+//   docRef.onSnapshot(doc => {
+//     if (doc && doc.exists) {
+//       const postData = doc.data();
+//       printPost.value = postData.status;
+//     }
+//   })
+//   }
+  
+//   realTimeUpdates();

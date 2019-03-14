@@ -1,3 +1,53 @@
+# SOCIAL NETWORK
+
+
+## Índice del proyecto de pagina
+
+- [Introducción](#Introducción)
+- [Descripción](#Descripción-del-proyecto)
+- [Comenzando](#Comenzando)
+- [Pre-requisitos](#Pre-requisitos)
+- [Instalación](#Instalación)
+- [Construido con](#Construido-con)
+- [Contribuyendo](#Contribuyendo)
+- [Versionando](#Versionando)
+- [Licencia](#Licencia)
+- [Agradecimientos](#Agradecimientos)
+
+## Introducción
+
+Manuel Castells, uno de los sociólogos que más ha escrito sobre el tema digital y un referente obligado en la academia al hablar sobre comunicación digital, menciona como las redes sociales representan una oportunidad para el cambio social. Castells plantea que dichas plataformas pueden convertirse en una palanca del cambio social, pues pueden lograr que lo que parece imposible pueda lograrse a través de redes de comunicación y colaboración digitales.
+
+Pierre Levy, filósofo de origen tunecino e investigador del ciberespacio, considera que la red y todas sus plataformas de comunicación e interacción representan una forma de incrementar la inteligencia y el conocimiento que tenemos sobre el mundo que nos rodea. La inteligencia colectiva, explica Levy, es la suma de la participación y reflexión de personas que trabajan de forma colaborativa sobre un tema específico. Impulsada por la aparición de Internet, la inteligencia colectiva representa un salto gigantesco en la forma de producir y compartir el conocimiento.
+
+Forbes, México Rubén Vázquez febrero 5, 2015 @ 2:30 pm.
+
+Las redes sociales llegaron a nuestra vida para quedarse, En este sentido es importante darles un proposito positivo para la sociedad y el individuo que la usa. Esta pagina pretende ser una red social enfocada en el tema de la educación, dirigida a estudiantes y a todo aquel que quiera aprender y compartir su aprendizaje; aprovechando los recursos en linea de clases y cursos en linea e intenta ser una forma divertida y dinamica para poder compartirlos.
+
+## Descripción
+
+
+
+Prototipo de baja fidelidad:
+
+
+
+ 
+ -![screen](../CDMX007-social-network/imágenes/bajaf1.png) 
+
+https://marvelapp.com/3ecjfjh/screen/54082219
+
+## Comenzando
+## Pre-requisitos
+## Instalación
+## Construido con:
+## Contribuyendo
+## Versionando
+## Licencia
+## Agradecimientos
+
+
+
 # Creando una Red Social
 
 ## Preámbulo
