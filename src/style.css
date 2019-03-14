@@ -14,7 +14,7 @@ nav .logo-text, #welcome{
 }
 
 div textarea, div fieldset, #firebaseui-auth-container button{
-    border-radius: 3vw;
+    border-radius: 1vw;
 }
 
 #firebaseui-auth-container button, #post-button{
