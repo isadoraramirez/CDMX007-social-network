@@ -4,6 +4,8 @@ const printPost = document.getElementById("print-post");
 var db = firebase.firestore();
 const docRef = firestore.collection("wallPost").doc("post");
 // const textToPost = postStatus.value;
+const deletePost = document.getElementById("delete-post");
+const editPost = document.getElementById("edit");
 
 function onloadWall() {
 
@@ -26,6 +28,8 @@ function onloadWall() {
                   </div>
                 </div>
               </div>
+              <button onclick="edit()" id="edit">Editar</button>
+              <button onclick="deletePost() "id="delete-post">Borrar</button>
             </div>`
     });
   });
@@ -101,6 +105,8 @@ postButton.addEventListener("click", () => {
               </div>
             </div>
           </div>
+          <button onclick="edit()" id="edit">Editar</button>
+          <button onclick="deletePost() "id="delete-post">Borrar</button>
         </div>`
         });;
       });
@@ -110,6 +116,10 @@ postButton.addEventListener("click", () => {
     }
   });
 });
+
+deletePost.addEventListener("edit()", ()=>{
+  
+})
 
 // realTimeUpdates = () =>{
 //   docRef.onSnapshot(doc => {
