@@ -17,4 +17,4 @@ var firebase;
   firestore.settings(settings);
 
 
-// comentrio
+// comentrio otro 
