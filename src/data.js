@@ -13,7 +13,7 @@ function onloadWall() {
   const publicaciones = bd.collection('/wallPost').orderBy('name');
   publicaciones.get().then(snapshot => {
     snapshot.forEach(doc => {
-      console.log(doc.id, '=>', doc.data());
+      // console.log(doc.id, '=>', doc.data());
       if (user.id === doc.data().uid) {
         document.getElementById("wall").innerHTML += `     
             <div class="col s12 m7">
@@ -107,8 +107,8 @@ postButton.addEventListener("click", () => {
       const postPublications = await bd.collection('/wallPost').orderBy('name');
       postPublications.get().then(snapshot => {
         snapshot.forEach(doc => {
-          console.log(doc.id, '=>', doc.data());
-          if (user.id === doc.data().uid) {
+          // console.log(doc.id, '=>', doc.data());
+          if (user.uid === doc.data().uid) {
             muro.innerHTML += `      
           <div class="col s12 m7">
           <h4 class="header name-title">${doc.data().name.toUpperCase()}</h4>
@@ -122,9 +122,11 @@ postButton.addEventListener("click", () => {
               </div>
             </div>
           </div>
+         <button onclick="editPost()" id="edit-post">Editar</button>
+         <button onclick="deletePost() "id="delete-post">Borrar</button>
         </div>`
           } else {
-            muro.innerHTML += `      
+        muro.innerHTML += `      
         <div class="col s12 m7">
         <h4 class="header name-title">${doc.data().name.toUpperCase()}</h4>
           <div class="card horizontal z-depth-3">
@@ -137,8 +139,6 @@ postButton.addEventListener("click", () => {
             </div>
           </div>
         </div>
-        <button onclick="editPost()" id="edit">Editar</button>
-        <button onclick="deletePost() "id="delete-post">Borrar</button>
       </div>`
           }
         });
@@ -148,17 +148,8 @@ postButton.addEventListener("click", () => {
       console.log("No hay usuario loggeado")
     }
   });
+    postStatus.value = '';  
 });
-
-// deletePost.addEventListener("click", ()=>{
-
-// })
-
-
-// deletePost.addEventListener("edit()", ()=>{
-//   if (firebase.auth().getCurrentUser() == ){}
-// })
-
 
 // realTimeUpdates = () =>{
 //   docRef.onSnapshot(doc => {

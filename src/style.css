@@ -17,10 +17,10 @@ div textarea, div fieldset, #firebaseui-auth-container button{
     border-radius: 1vw;
 }
 
-#delete-post, #edit, #firebaseui-auth-container button, #post-button{
+#delete-post, #edit-post, #firebaseui-auth-container button, #post-button{
     border-radius: 5vw;
 }
-#delete-post, #edit, #firebaseui-auth-container button:hover{
+#delete-post, #edit-post, #firebaseui-auth-container button:hover{
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19)!important
 }
 
