@@ -3,7 +3,9 @@ const postButton = document.getElementById("post-button");
 const printPost = document.getElementById("print-post");
 var db = firebase.firestore();
 const docRef = firestore.collection("wallPost").doc("post");
-// const textToPost = postStatus.value;
+// const textToPost = postStatus.valuef;
+const deletePost = document.getElementById("delete-post");
+const editPost = document.getElementById("edit-post");
 
 function onloadWall() {
 
@@ -11,12 +13,12 @@ function onloadWall() {
   const publicaciones = bd.collection('/wallPost').orderBy('name');
   publicaciones.get().then(snapshot => {
     snapshot.forEach(doc => {
-      console.log(doc.id, '=>', doc.data());
-      document.getElementById("wall").innerHTML += `
-                
+      // console.log(doc.id, '=>', doc.data());
+      if (user.id === doc.data().uid) {
+        document.getElementById("wall").innerHTML += `     
             <div class="col s12 m7">
               <h4 class="header name-title">${doc.data().name.toUpperCase()}</h4>
-                <div class="card horizontal">
+                <div class="card horizontal z-depth-3">
                   <div class="c-i">
                     <img class="user-photo"src="${doc.data().photo}">
                   </div>
@@ -27,6 +29,23 @@ function onloadWall() {
                 </div>
               </div>
             </div>`
+          } else {
+            `<div class="col s12 m7">
+          <h4 class="header name-title">${doc.data().name.toUpperCase()}</h4>
+            <div class="card horizontal z-depth-3">
+              <div class="c-i">
+                <img class="user-photo"src="${doc.data().photo}">
+              </div>
+            <div class="card-stacked">
+              <div class="post">
+                <p class="p-post">${doc.data().post}</p>
+              </div>
+            </div>
+          </div>
+          <button onclick="editPost()" id="edit-post">Editar</button>
+          <button onclick="deletePost() "id="delete-post">Borrar</button>
+        </div>`
+          }
     });
   });
 
@@ -69,8 +88,9 @@ postButton.addEventListener("click", () => {
   var provider = new firebase.auth.GoogleAuthProvider();
   provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
   firebase.auth().onAuthStateChanged(async function (user) {
+
     if (user) {
-      console.log(user.email);
+      console.log(user);
 
       await db.collection("wallPost")
         .add({
@@ -78,6 +98,7 @@ postButton.addEventListener("click", () => {
           email: user.email,
           post: textToPost,
           photo: user.photoURL,
+          uid: user.uid
           //date: new Date,
         })
 
@@ -86,12 +107,12 @@ postButton.addEventListener("click", () => {
       const postPublications = await bd.collection('/wallPost').orderBy('name');
       postPublications.get().then(snapshot => {
         snapshot.forEach(doc => {
-          console.log(doc.id, '=>', doc.data());
-          muro.innerHTML += `
-                
+          // console.log(doc.id, '=>', doc.data());
+          if (user.uid === doc.data().uid) {
+            muro.innerHTML += `      
           <div class="col s12 m7">
           <h4 class="header name-title">${doc.data().name.toUpperCase()}</h4>
-            <div class="card horizontal">
+            <div class="card horizontal z-depth-3">
               <div class="c-i">
                 <img class="user-photo"src="${doc.data().photo}">
               </div>
@@ -101,14 +122,33 @@ postButton.addEventListener("click", () => {
               </div>
             </div>
           </div>
+         <button onclick="editPost()" id="edit-post">Editar</button>
+         <button onclick="deletePost() "id="delete-post">Borrar</button>
         </div>`
-        });;
+          } else {
+        muro.innerHTML += `      
+        <div class="col s12 m7">
+        <h4 class="header name-title">${doc.data().name.toUpperCase()}</h4>
+          <div class="card horizontal z-depth-3">
+            <div class="c-i">
+              <img class="user-photo"src="${doc.data().photo}">
+            </div>
+          <div class="card-stacked">
+            <div class="post">
+              <p class="p-post">${doc.data().post}</p>
+            </div>
+          </div>
+        </div>
+      </div>`
+          }
+        });
       });
 
     } else {
       console.log("No hay usuario loggeado")
     }
   });
+    postStatus.value = '';  
 });
 
 // realTimeUpdates = () =>{
@@ -119,5 +159,5 @@ postButton.addEventListener("click", () => {
 //     }
 //   })
 //   }
-  
+
 //   realTimeUpdates();
