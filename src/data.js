@@ -151,11 +151,6 @@ postButton.addEventListener("click", () => {
     postStatus.value = '';  
 });
 
-// deletePost.addEventListener("edit()", ()=>{
-//   if (firebase.auth().getCurrentUser() == ){}
-// })
-
-
 // realTimeUpdates = () =>{
 //   docRef.onSnapshot(doc => {
 //     if (doc && doc.exists) {
