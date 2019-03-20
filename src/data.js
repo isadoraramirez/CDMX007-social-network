@@ -3,7 +3,7 @@ const postButton = document.getElementById("post-button");
 const printPost = document.getElementById("print-post");
 var db = firebase.firestore();
 const docRef = firestore.collection("wallPost").doc("post");
-// const textToPost = postStatus.value;
+// const textToPost = postStatus.valuef;
 
 function onloadWall() {
 
