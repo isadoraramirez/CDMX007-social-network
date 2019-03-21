@@ -17,10 +17,15 @@ div textarea, div fieldset, #firebaseui-auth-container button{
     border-radius: 1vw;
 }
 
-#delete-post, #edit-post, #firebaseui-auth-container button, #post-button{
+#firebaseui-auth-container button, #post-button{
     border-radius: 5vw;
 }
-#delete-post, #edit-post, #firebaseui-auth-container button:hover{
+#delete-post, #edit-post, #like{
+    border-style: hidden;
+    background-color: transparent;
+    block-size: 1vw;
+}
+/* #delete-post, #edit-post,*/ #firebaseui-auth-container button{ 
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19)!important
 }
 
@@ -46,4 +51,14 @@ div textarea, div fieldset, #firebaseui-auth-container button{
 }
 .name-title{
     font-size: 1.2rem;
+}
+#userNameP {
+  
+    font-size: 12px;
+    
+}
+#userEmailP{
+  
+    font-size: 12px;
+    
 }
