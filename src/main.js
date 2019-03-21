@@ -1,11 +1,12 @@
-var mainApp = {};
+//var mainApp = {};
 let buttonLogOut = document.getElementById('logOut');
+let buttonLogOutWeb = document.getElementById('logOutWeb');
 const userImage = document.getElementById("userImage");
 const userNameP= document.getElementById("userNameP");
 const userEmailP= document.getElementById("userEmailP");
-var app_fireBase;
+//var app_fireBase;
 
-var firebase = app_fireBase;
+//var firebase = app_fireBase;
 var uid = null;
 var user = firebase.auth().onAuthStateChanged
 
@@ -37,8 +38,15 @@ function logOut(){
   console.log('asmd')
   firebase.auth().signOut();
 }
-mainApp.logOut = logOut;
-buttonLogOut.addEventListener('click',mainApp.logOut);
+//mainApp.logOut = logOut;
+buttonLogOut.addEventListener('click',logOut);
+
+//function logOut(){
+  //console.log('asmd')
+  //firebase.auth().signOut();
+//}
+//mainApp.logOut = logOut;
+//buttonLogOutWeb.addEventListener('click',logOutWeb);
 
 document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.sidenav');
