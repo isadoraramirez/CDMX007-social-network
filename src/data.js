@@ -231,3 +231,4 @@ return olgaRef.update({
 
   }
 }
+//funcionan los botones
