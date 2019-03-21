@@ -210,7 +210,7 @@ db.collection("/wallPost").doc(id).delete().then(function() {
 function editPost(id,textToPost){
 console.log('holo')
   postStatus.value= textToPost;
-  // postButton.style.display = 'none'
+  // postButton.style.display = 'none' sugerencia JOhn
   postButton.innerHTML=`<i class="material-icons">cached</i>`;
 
   postButton.onclick = function(){
