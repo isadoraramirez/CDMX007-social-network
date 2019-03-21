@@ -84,9 +84,11 @@ postButton.addEventListener("click", () => {
       const bd = await firebase.firestore();
 
       const postPublications = await bd.collection('/wallPost').orderBy('name');
+      
       postPublications.get().then(snapshot => {
         snapshot.forEach(doc => {
-          console.log(doc.id, '=>', doc.data());
+          if(photo === undefined){
+            console.log(doc.id, '=>', doc.data());
           muro.innerHTML += `
                 
           <div class="col s12 m7">
@@ -102,6 +104,25 @@ postButton.addEventListener("click", () => {
             </div>
           </div>
         </div>`
+          } else{
+            console.log(doc.id, '=>', doc.data());
+            muro.innerHTML += `
+                  
+            <div class="col s12 m7">
+            <h4 class="header name-title">${doc.data().name.toUpperCase()}</h4>
+              <div class="card horizontal">
+                <div class="c-i">
+                  <img class="user-photo"src="${doc.data().photo}">
+                </div>
+              <div class="card-stacked">
+                <div class="post">
+                  <p class="p-post">${doc.data().post}</p>
+                </div>
+              </div>
+            </div>
+          </div>`
+          }
+          
         });;
       });
 
@@ -121,3 +142,67 @@ postButton.addEventListener("click", () => {
 //   }
   
 //   realTimeUpdates();
+/*publicaciones.get().then(snapshot => {
+  if(photo === null){
+    snapshot.forEach(doc => {
+      console.log(doc.id, '=>', doc.data());
+      document.getElementById("wall").innerHTML += `
+                
+            <div class="col s12 m7">
+              <h4 class="header name-title">${doc.data().name.toUpperCase()}</h4>
+                <div class="card horizontal">
+                  <div class="c-i">
+                    <img class="user-photo"src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvh5TKEzbN8jqt6Rr9gjN_ZeCSsO9kvYxglyLJerk2E4U0qNMV">
+                  </div>
+                <div class="card-stacked">
+                  <div class="post">
+                    <p class="p-post">${doc.data().post}</p>
+                  </div>
+                </div>
+              </div>
+            </div>`
+    });
+  } else {
+    snapshot.forEach(doc => {
+      console.log(doc.id, '=>', doc.data());
+      document.getElementById("wall").innerHTML += `
+                
+            <div class="col s12 m7">
+              <h4 class="header name-title">${doc.data().name.toUpperCase()}</h4>
+                <div class="card horizontal">
+                  <div class="c-i">
+                    <img class="user-photo"src="${doc.data().photo}">
+                  </div>
+                <div class="card-stacked">
+                  <div class="post">
+                    <p class="p-post">${doc.data().post}</p>
+                  </div>
+                </div>
+              </div>
+            </div>`
+    });
+  }
+  
+});
+
+}
+    postPublications.get().then(snapshot => {
+      snapshot.forEach(doc => {
+        console.log(doc.id, '=>', doc.data());
+        muro.innerHTML += `
+              
+        <div class="col s12 m7">
+        <h4 class="header name-title">${doc.data().name.toUpperCase()}</h4>
+          <div class="card horizontal">
+            <div class="c-i">
+              <img class="user-photo"src="${doc.data().photo}">
+            </div>
+          <div class="card-stacked">
+            <div class="post">
+              <p class="p-post">${doc.data().post}</p>
+            </div>
+          </div>
+        </div>
+      </div>`
+      });;
+    });*/

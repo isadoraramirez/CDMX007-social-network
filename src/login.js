@@ -1,7 +1,3 @@
-window.spa ={
-
-}
-
 var provider = new firebase.auth.FacebookAuthProvider();
 var provider = new firebase.auth.GoogleAuthProvider();
 firebase.auth().signInWithPopup(provider).then(function(result) {
