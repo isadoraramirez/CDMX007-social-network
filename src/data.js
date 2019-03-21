@@ -1,4 +1,4 @@
-// CONSTANTES
+/// CONSTANTES
 
 const postStatus       = document.getElementById("post-status");
 const postButton       = document.getElementById("post-button");
