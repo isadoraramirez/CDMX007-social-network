@@ -26,7 +26,7 @@ const onloadWall = () => {
         document.getElementById("wall").innerHTML += `     
             <div class="col s12 m7">
               <h4 class="header name-title">${data.name}</h4>
-                <div class="card horizontal z-depth-3">
+                <div class="row card horizontal z-depth-3">
                   <div class="c-i">
                     <img class="user-photo"src="${data.photo}">
                   </div>
@@ -34,27 +34,28 @@ const onloadWall = () => {
                   <div class="post">
                     <p class="p-post">${data.post}</p>
                   </div>
+                   <button class="col s2 m1" id="like"><i class="material-icons">lightbulb_outline</i></button>
                 </div>
               </div>
-              <button onclick="editPost()" id="edit-post">Editar</button>
-              <button onclick="deletePost() "id="delete-post">Borrar</button>
             </div>`
           } else {
-            `<div class="col s12 m7">
-          <h4 class="header name-title">${dataName}</h4>
-            <div class="card horizontal z-depth-3">
+          `<div class="col s12 m7">
+           <h4 class="header name-title">${dataName}</h4>
+            <div class="row card horizontal z-depth-3">
               <div class="c-i">
                 <img class="user-photo"src="${data.photo}">
               </div>
             <div class="card-stacked">
               <div class="post">
-                <p class="p-post">${data.post}</p>
-              </div>
+                <p class="p-post">${data.post}</p>            
+                </div>
+                <button class="col s2 m1" onclick="editPost()" id="edit-post">Editar</button>
+                <button class="col s2 m1" onclick="deletePost()" id="delete-post">Borrar</button>
+                <button class="col s2 m1" id="like"><i class="material-icons">lightbulb_outline</i></button>
+              
+             </div>
             </div>
-          </div>
-          <button onclick="editPost()" id="edit-post">Editar</button>
-          <button onclick="deletePost() "id="delete-post">Borrar</button>
-        </div>`
+            </div>`
           }
     });
   });
@@ -90,24 +91,25 @@ postButton.addEventListener("click", () => {
             muro.innerHTML += `      
           <div class="col s12 m7">
           <h4 class="header name-title">${doc.data().name.toUpperCase()}</h4>
-            <div class="card horizontal z-depth-3">
+            <div class="row card horizontal z-depth-3">
               <div class="c-i">
                 <img class="user-photo"src="${doc.data().photo}">
               </div>
             <div class="card-stacked">
               <div class="post">
-                <p class="p-post">${doc.data().post}</p>
+                <p class="p-post">${doc.data().post}</p>            
               </div>
+                <button class="col s2 m1" onclick="editPost()" id="edit-post">Editar</button>
+                <button class="col s2 m1" onclick="deletePost() "id="delete-post">Borrar</button>
+                <button class="col s2 m1" class="push-s5" id="like"><i class="material-icons">lightbulb_outline</i></button>
             </div>
           </div>
-         <button onclick="editPost()" id="edit-post">Editar</button>
-         <button onclick="deletePost() "id="delete-post">Borrar</button>
-        </div>`
+         </div>`
           } else {
         muro.innerHTML += `      
         <div class="col s12 m7">
         <h4 class="header name-title">${doc.data().name.toUpperCase()}</h4>
-          <div class="card horizontal z-depth-3">
+          <div class="row card horizontal z-depth-3">
             <div class="c-i">
               <img class="user-photo"src="${doc.data().photo}">
             </div>
@@ -115,6 +117,7 @@ postButton.addEventListener("click", () => {
             <div class="post">
               <p class="p-post">${doc.data().post}</p>
             </div>
+            <button class="col s2 m1" id="like"><i class="material-icons">lightbulb_outline</i></button>
           </div>
         </div>
       </div>`
