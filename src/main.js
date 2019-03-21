@@ -14,11 +14,18 @@ firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     localStorage.setItem('user', JSON.stringify(user))
     // User is signed in.
-    uid = user.uid;
-        userImage.innerHTML = `<img class="circle"src="${user.photoURL}"></img>`
-        userNameP.innerHTML = `<p id="userNameP" href="#!"><i class="material-icons">account_circle</i> &nbsp ${user.displayName}</p></li>`
-        userEmailP.innerHTML = `<p id="userEmailP" href="#!"><i class="material-icons">email</i> &nbsp ${user.email}</p></li>`
-        console.log(userImage)
+    if(user.photoURL === null){
+      uid = user.uid;
+      userImage.innerHTML = `<img class="circle"src="../imágenes/computer.png"></img>`
+      userNameP.innerHTML = `<p id="userNameP" href="#!"><i class="material-icons">account_circle</i> &nbsp ${user.displayName}</p></li>`
+      userEmailP.innerHTML = `<p id="userEmailP" href="#!"><i class="material-icons">email</i> &nbsp ${user.email}</p></li>`
+    }else{
+      uid = user.uid;
+      userImage.innerHTML = `<img class="circle"src="${user.photoURL}"></img>`
+      userNameP.innerHTML = `<p id="userNameP" href="#!"><i class="material-icons">account_circle</i> &nbsp ${user.displayName}</p></li>`
+      userEmailP.innerHTML = `<p id="userEmailP" href="#!"><i class="material-icons">email</i> &nbsp ${user.email}</p></li>`
+      console.log(userImage)
+    }
     
   } else {
     console.log('no hay usuario')
