@@ -88,12 +88,13 @@ postButton.addEventListener("click", () => {
         snapshot.forEach(doc => {
           // console.log(doc.id, '=>', doc.data());
           if (user.uid === doc.data().uid) {
+           if (doc.data().photo === null) {
             muro.innerHTML += `      
           <div class="col s12 m7">
           <h4 class="header name-title">${doc.data().name.toUpperCase()}</h4>
             <div class="row card-panel hoverable">
               <div class="c-i">
-                <img class="user-photo"src="${doc.data().photo}">
+               <img class="user-photo"src="../imágenes/computer.png">
               </div>
             <div class="card-stacked">
               <div class="post">
@@ -111,7 +112,7 @@ postButton.addEventListener("click", () => {
         <h4 class="header name-title">${doc.data().name.toUpperCase()}</h4>
           <div class="row card-panel hoverable">
             <div class="c-i">
-              <img class="user-photo"src="${doc.data().photo}">
+            <img class="user-photo"src="${doc.data().photo}"> 
             </div>
           <div class="card-stacked">
             <div class="post">
@@ -120,7 +121,45 @@ postButton.addEventListener("click", () => {
             <button class="col s2 m1" id="like"><i id="icon-like" class="material-icons" id="icon-like">lightbulb_outline</i></button>
           </div>
         </div>
+        <button onclick="editPost()" id="edit-post">Editar</button>
+         <button onclick="deletePost() "id="delete-post">Borrar</button>
       </div>`
+          }
+          
+
+          }else{
+            if (doc.data().photo === null) {
+                muro.innerHTML += `      
+              <div class="col s12 m7">
+              <h4 class="header name-title">${doc.data().name.toUpperCase()}</h4>
+                <div class="card horizontal z-depth-3">
+                  <div class="c-i">
+                   <img class="user-photo"src="../imágenes/computer.png">
+                  </div>
+                <div class="card-stacked">
+                  <div class="post">
+                    <p class="p-post">${doc.data().post}</p>
+                  </div>
+                </div>
+              </div>
+            </div>`
+              } else {
+            muro.innerHTML += `      
+            <div class="col s12 m7">
+            <h4 class="header name-title">${doc.data().name.toUpperCase()}</h4>
+              <div class="card horizontal z-depth-3">
+                <div class="c-i">
+                <img class="user-photo"src="${doc.data().photo}"> 
+                </div>
+              <div class="card-stacked">
+                <div class="post">
+                  <p class="p-post">${doc.data().post}</p>
+                </div>
+              </div>
+            </div>
+          </div>`
+              }
+
           }
         });
       });
