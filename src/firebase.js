@@ -1,4 +1,4 @@
-var app_fireBase = {}
+//var app_fireBase = {}
 var firebase;
  //  Initialize Firebase
  var config = {
@@ -10,10 +10,12 @@ var firebase;
     messagingSenderId: "909899627887"
   };
   firebase.initializeApp(config);
-  app_fireBase = firebase;
+  //app_fireBase = firebase;
 
   const firestore = firebase.firestore();
   const settings = {/* your settings... */ timestampsInSnapshots: true};
   firestore.settings(settings);
 
 
+// comentrio otro 
+//uno mas
