@@ -86,9 +86,10 @@ const db               = firebase.firestore();
         </div>
       </div>`
           }
-
+       
       }
     });
+    muro.innerHTML = ''
   });
 //}
 
@@ -176,7 +177,7 @@ postButton.addEventListener("click", () => {
             muro.innerHTML += `      
             <div class="col s12 m7">
             <h4 class="header name-title">${doc.data().name.toUpperCase()}</h4>
-              <div class="card horizontal z-depth-3">.toUpperCase()
+              <div class="card horizontal z-depth-3">
                 <div class="c-i">
                 <img class="user-photo"src="${doc.data().photo}"> 
                 </div>
