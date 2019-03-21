@@ -12,8 +12,8 @@ var user = firebase.auth().onAuthStateChanged
 
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
+    localStorage.setItem('user', JSON.stringify(user))
     // User is signed in.
-    console.log(user)
     uid = user.uid;
         userImage.innerHTML = `<img class="circle"src="${user.photoURL}"></img>`
         userNameP.innerHTML = `<p id="userNameP" href="#!"><i class="material-icons">account_circle</i> &nbsp ${user.displayName}</p></li>`
