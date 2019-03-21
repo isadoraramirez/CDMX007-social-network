@@ -32,7 +32,7 @@ postPublications.onSnapshot(querySnapshot => {
           </div>
           </div>
           </div>
-          <button onclick="editPost('${doc.id}')" class="edit-post">Editar</button>
+          <button onclick="editPost('${doc.id}','${doc.data().post}')" class="edit-post">Editar</button>
           <button onclick="deletePost('${doc.id}')" class="delete-post">Borrar</button>
           </div>`
       } else {
@@ -49,7 +49,7 @@ postPublications.onSnapshot(querySnapshot => {
     </div>
     </div>
     </div>
-    <button onclick="editPost('${doc.id}'))" class="edit-post">Editar</button>
+    <button onclick="editPost('${doc.id}','${doc.data().post}'))" class="edit-post">Editar</button>
     <button onclick="deletePost('${doc.id}'))" class="delete-post">Borrar</button>
     </div>`
       }
@@ -134,7 +134,7 @@ postButton.addEventListener("click", () => {
               </div>
             </div>
           </div>
-         <button onclick="editPost('${doc.id}')" class="edit-post">Editar</button>
+         <button onclick="editPost('${doc.id}', '${doc.data().post}')" class="edit-post">Editar</button>
          <button onclick="deletePost('${doc.id}')" class="delete-post">Borrar</button>
         </div>`
             } else {
@@ -151,7 +151,7 @@ postButton.addEventListener("click", () => {
             </div>
           </div>
         </div>
-        <button onclick="editPost('${doc.id}')" class="edit-post">Editar</button>
+        <button onclick="editPost('${doc.id}', '${doc.data().post}')" class="edit-post">Editar</button>
          <button onclick="deletePost('${doc.id}')" class="delete-post">Borrar</button>
       </div>`
             }
@@ -205,4 +205,29 @@ db.collection("/wallPost").doc(id).delete().then(function() {
 }).catch(function(error) {
   console.error("Error removing document: ", error);
 });
+}
+
+function editPost(id,textToPost){
+console.log('holo')
+  postStatus.value= textToPost;
+  // postButton.style.display = 'none'
+  postButton.innerHTML=`<i class="material-icons">cached</i>`;
+
+  postButton.onclick = function(){
+    var olgaRef = db.collection("/wallPost").doc(id);
+    var textToPost = postStatus.value;
+
+return olgaRef.update({
+    post: textToPost,
+})
+.then(function() {
+    console.log("Document successfully updated!");
+    postButton.innerHTML=`<i class="material-icons">add_circle_outline</i>`;
+})
+.catch(function(error) {
+    // The document probably doesn't exist.
+    console.error("Error updating document: ", error);
+});
+
+  }
 }
