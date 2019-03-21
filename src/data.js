@@ -1,4 +1,4 @@
-// CONSTANTES
+/// CONSTANTES
 
 const postStatus       = document.getElementById("post-status");
 const postButton       = document.getElementById("post-button");
@@ -65,6 +65,7 @@ const db               = firebase.firestore();
               </div>
             <div class="card-stacked">
               <div class="post">
+                <p class="p-post">${doc.data().post}</p>
               </div>
             </div>
           </div>
@@ -74,6 +75,29 @@ const db               = firebase.firestore();
         <div class="col s12 m7">
         <h4 class="header name-title">${doc.data().name}</h4>
           <div class="card horizontal z-depth-3">
+            <div class="c-i">
+            <img class="user-photo"src="${doc.data().photo}"> 
+            </div>
+          <div class="card-stacked">
+            <div class="post">
+              <p class="p-post">${doc.data().post}</p>
+            </div>
+          </div>
+        </div>
+      </div>`
+          }
+       
+      }
+    });
+    muro.innerHTML = ''
+  });
+//}
+
+// EVENTOS - Listeners
+postButton.addEventListener("click", () => {
+  const muro = document.getElementById("wall")
+  muro.innerHTML = ''
+  let textToPost = postStatus.value;
   
   firebase.auth().onAuthStateChanged(async function (user) {
     if (user) {
@@ -100,33 +124,31 @@ const db               = firebase.firestore();
             muro.innerHTML += `      
           <div class="col s12 m7">
           <h4 class="header name-title">${doc.data().name.toUpperCase()}</h4>
-            <div class="row card-panel hoverable">
+            <div class="card horizontal z-depth-3">
               <div class="c-i">
                <img class="user-photo"src="../imágenes/computer.png">
               </div>
             <div class="card-stacked">
               <div class="post">
-                <p class="col s12 m7 text-float p-post">${doc.data().post}</p>            
+                <p class="p-post">${doc.data().post}</p>
               </div>
-                <button class="col s2 m1" onclick="editPost()" id="edit-post">Editar</button>
-                <button class="col s2 m1" onclick="deletePost() "id="delete-post">Borrar</button>
-                <button class="col s2 m1" class="push-s5" id="like"><i id="icon-like"class="material-icons">lightbulb_outline</i></button>
             </div>
           </div>
-         </div>`
+         <button onclick="editPost()" id="edit-post">Editar</button>
+         <button onclick="deletePost() "id="delete-post">Borrar</button>
+        </div>`
           } else {
         muro.innerHTML += `      
         <div class="col s12 m7">
         <h4 class="header name-title">${doc.data().name.toUpperCase()}</h4>
-          <div class="row card-panel hoverable">
+          <div class="card horizontal z-depth-3">
             <div class="c-i">
             <img class="user-photo"src="${doc.data().photo}"> 
             </div>
           <div class="card-stacked">
             <div class="post">
-              <p class="col s12 m7 text-float p-post">${doc.data().post}</p>
+              <p class="p-post">${doc.data().post}</p>
             </div>
-            <button class="col s2 m1" id="like"><i id="icon-like" class="material-icons" id="icon-like">lightbulb_outline</i></button>
           </div>
         </div>
         <button onclick="editPost()" id="edit-post">Editar</button>
@@ -155,7 +177,7 @@ const db               = firebase.firestore();
             muro.innerHTML += `      
             <div class="col s12 m7">
             <h4 class="header name-title">${doc.data().name.toUpperCase()}</h4>
-              <div class="card horizontal z-depth-3">.toUpperCase()
+              <div class="card horizontal z-depth-3">
                 <div class="c-i">
                 <img class="user-photo"src="${doc.data().photo}"> 
                 </div>
